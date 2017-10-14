@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
+
 const path = require('path');
 app.set('view engine', 'hbs');
 const publicPath = path.resolve(__dirname, 'public');
