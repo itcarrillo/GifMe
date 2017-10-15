@@ -6,8 +6,7 @@ const client = require('twilio')(apiSid, apiToken);
 const request = require('request');
 
 function receivePicture(req, res) {
-	//const img = req.body.MediaUrl0;
-	const img = 'http://www.meltonorthodontics.co.uk/DENTAL%20NEWS%20IMAGES/health-benefits-of-smiling-07-pg-full.jpg';
+	const img = req.body.MediaUrl0;
 	console.log(img);
 	console.log(req.body.From);
 	
