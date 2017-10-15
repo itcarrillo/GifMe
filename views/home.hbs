@@ -12,12 +12,12 @@
     <div class="col-3">
       <form method="POST" action="/api/parseImageBase64">
       <input id="browse" type="file" name="image" accept="image/*" onchange="upload()">
-      <p id="base64Display"></p> 
+      <p id="base64Display"></p>
       <label for="browse">Browse</label>
       <input type="submit" name="submit" value="Submit">
       </form>
     </div>
-    <canvas id="mycanvas"></canvas>
+    <!-- <canvas id="mycanvas"></canvas> -->
     <script>
     function upload(){
       console.log("upload");
