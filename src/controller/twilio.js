@@ -7,7 +7,7 @@ const request = require('request');
 const clarifAi = require('./clarifAi.js');
 
 function receivePicture(req, res) {
-	const img = req.body.Body;
+	const img = req.body.MediaUrl0;
 	console.log(img);
 	//clarifAi.parseImageBase64(img)
 	console.log(req.body.From);
