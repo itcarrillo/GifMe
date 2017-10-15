@@ -6,7 +6,8 @@ const client = require('twilio')(apiSid, apiToken);
 const request = require('request');
 
 function receivePicture(req, res) {
-	const img = req.body.MediaUrl0;
+	//const img = req.body.MediaUrl0;
+	const img = 'https://s3-external-1.amazonaws.com/media.twiliocdn.com/ACacc644d07caf2bd18d5a0d89b9e15699/17f059bcf0a6f657bb6891c1687eb7b1';
 	console.log(img);
 	console.log(req.body.From);
 	
