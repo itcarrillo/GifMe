@@ -16,20 +16,17 @@ function receivePicture(req, res) {
     	form: {'url': img}
 	}
 
-	let url;
-
 	request(options, (err, response, body) => {
 		if (err) {
 			console.log(err);
 			res.send(err);
 		}
 		else {
-			url = body;
+			const url = body;
 			console.log(url);
+			sendGif(url, req.body.From);
 		}
 	});
-
-	sendGif(url, req.body.From);
 }
 
 
