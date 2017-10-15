@@ -1,0 +1,22 @@
+input {
+  align-items: center;
+}
+
+h1 {
+	font-size: 60px;
+	font-family: Verdana;
+	color: royalblue;
+}
+
+form {
+	text-align: center;
+}
+
+p {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 20px;
+	text-align: center;
+}
