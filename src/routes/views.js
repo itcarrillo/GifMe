@@ -5,4 +5,8 @@ router.get('/', (req, res) => {
 	res.render('home');
 });
 
+router.get('/result', (req, res) => {
+	res.render('result', req.body);
+});
+
 module.exports = {router: router};
