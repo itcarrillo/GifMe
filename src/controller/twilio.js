@@ -11,10 +11,12 @@ function receivePicture(req, res) {
 	console.log(req.body.From);
 	
 	const options = {
-    	url: 'http://www.gifmenow.com/api/parseImageUrl',
+    	url: 'http://localhost:3000/api/parseImageUrlTwilio',
     	method: 'POST',
     	form: {'url': img}
 	}
+
+	let url;
 
 	request(options, (err, response, body) => {
 		if (err) {
@@ -22,12 +24,12 @@ function receivePicture(req, res) {
 			res.send(err);
 		}
 		else {
-			console.log(JSON.parse(body).Response.name);
+			url = JSON.parse(body).Response.url;
+			console.log(url);
 		}
 	});
 
-
-	//sendGif('https://media2.giphy.com/media/11gKLgWdd4fq92/200w_d.gif', req.body.From);
+	sendGif(url, req.body.From);
 }
 
 
