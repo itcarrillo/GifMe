@@ -8,6 +8,7 @@ const apiHome = require('../controller/apiHome');
 const clarifAi = require('../controller/clarifAi');
 
 const giphy = require('../controller/giphy');
+const twilio = require('../controller/twilio');
 // API
 router.get('/', apiHome.getApi);
 router.post('/', apiHome.postApi);
