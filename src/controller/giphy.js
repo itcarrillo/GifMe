@@ -3,6 +3,7 @@ const apiUrl = 'http://api.giphy.com';
 const request = require('request');
 
 function getGif(req, res) {
+	console.log("Test");
 	let output;
 	const query = req.body.string;
 	const url = apiUrl + '/v1/gifs/search?q=' + query + '&api_key=' + apiKey + '&limit=30';
@@ -14,7 +15,7 @@ function getGif(req, res) {
 		else {
 			const rando = parseInt(Math.random() * 30);
 			output = JSON.parse(body).data[rando].images.original.url;
-			res.render('result', {url: output});
+			return res.render('result', {url: output});
 		}
 	});
 }
