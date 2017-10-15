@@ -1,5 +1,7 @@
 const Clarifai = require('clarifai');
 
+const request = require('request');
+
 const app = new Clarifai.App({
   apiKey: process.env.clarifai_api_token
 });
@@ -16,12 +18,54 @@ function getGreater(data){
   return data[maxIterator];
 }
 
+function parseClarafaiObject(object){
+  return object.name;
+}
+
 exports.parseImageUrl = (req,res) => {
   // predict the contents of an image by passing in a url
 app.models.predict('GifMe', req.body.url).then(
 function(response) {
   // console.log(response);
-  res.json({Response: getGreater(response.outputs[0].data.concepts)});
+  const emotion = parseClarafaiObject(getGreater(response.outputs[0].data.concepts));
+  console.log("emotion " + emotion);
+  var request = require('request');
+  request.post({
+    url:     'http://localhost:3000/api/giphy',
+    form:    { string: emotion }
+  }, function(error, response, body){
+    res.send(body);
+  });
+  // request.post('/api/giphy').form({string:emotion});
+
+  // res.json({Response: emotion});
+},
+function(err) {
+  console.error(err);
+  res.json({Error: err});
+}
+);
+}
+
+
+exports.parseImageUrlTwilio = (req,res) => {
+  // predict the contents of an image by passing in a url
+app.models.predict('GifMe', req.body.url).then(
+function(response) {
+  // console.log(response);
+  const emotion = parseClarafaiObject(getGreater(response.outputs[0].data.concepts));
+  console.log("emotion " + emotion);
+  var request = require('request');
+  request.post({
+    url:     'http://localhost:3000/api/giphyUrl',
+    form:    { string: emotion }
+  }, function(error, response, body){
+    // console.log(body);
+    res.send(body);
+  });
+  // request.post('/api/giphy').form({string:emotion});
+
+  // res.json({Response: emotion});
 },
 function(err) {
   console.error(err);

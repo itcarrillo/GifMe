@@ -14,9 +14,11 @@ router.get('/', apiHome.getApi);
 router.post('/', apiHome.postApi);
 
 router.post('/parseImageUrl', clarifAi.parseImageUrl);
+router.post('/parseImageUrlTwilio', clarifAi.parseImageUrlTwilio);
 router.post('/parseImageBase64', clarifAi.parseImageBase64);
 
-router.post('/giphy', giphy.getGif);
+router.post('/giphy', giphy.getGifRendered);
+router.post('/giphyUrl', giphy.getGifUrl);
 router.post('/twilio', twilio.receivePicture);
 
 // Return Router
