@@ -22,13 +22,11 @@ function receivePicture(req, res) {
 			res.send(err);
 		}
 		else {
-			const resObj = JSON.parse(body);
 			console.log(url);
-			sendGif(resObj.url, resObj.form.string, req.body.From);
+			sendGif(body.url, body.form.string, req.body.From);
 		}
 	});
 }
-
 
 function sendGif(url, text, to) {
 	console.log('Sending gif...');
