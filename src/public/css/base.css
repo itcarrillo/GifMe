@@ -1,3 +1,16 @@
+body {
+  background: lightblue;
+}
+
+/*Input styling*/
+#browse {
+  color: red;
+}
+
+a {
+  color: royalblue;
+}
+
 input {
   align-items: center;
 }
