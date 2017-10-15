@@ -3,31 +3,24 @@
     <div class="col">
       <p class="text-center">Want To See Something Cool...</p>
       <p class="text-center phone_text">Phone Number: (917) 746-0378</p>
-      <p class="text-center phone_text">Send a photo of yourself happy, sad, etc...</p>
+      <p class="text-center phone_text">Send a photo of yourself happy or sad</p>
     </div>
   </div>
+  <br>
   <div class="row">
     <div class="col">
     </div>
     <div class="col-3">
       <form method="POST" action="/api/parseImageBase64">
+
       <input id="filePicker" type="file" name="image" accept="image/*" onchange="upload()">
+
+
       <p id="base64Display"></p>
       <label for="browse">Browse</label>
       <input type="submit" name="submit" value="Submit">
       </form>
     </div>
-    <!-- <script>
-    function getBase64(file) {
-      var reader = new FileReader();
-     reader.readAsDataURL(file);
-     reader.onload = function () {
-       console.log(reader.result);
-     };
-     reader.onerror = function (error) {
-       console.log('Error: ', error);
-     };
-}
     function upload(){
 
 var file = document.querySelector('#filePircke> input[type="file"]').files[0];
