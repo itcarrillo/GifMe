@@ -5,7 +5,7 @@ const app = new Clarifai.App({
 });
 
 function getGreater(data){
-  console.log(data);
+  // console.log(data);
   var maxIterator, maxValue = 0;
   for (var i in data) {
     if(maxValue < data[i].value){
@@ -20,7 +20,7 @@ exports.parseImageUrl = (req,res) => {
   // predict the contents of an image by passing in a url
 app.models.predict('GifMe', req.body.url).then(
 function(response) {
-  console.log(response);
+  // console.log(response);
   res.json({Response: getGreater(response.outputs[0].data.concepts)});
 },
 function(err) {
@@ -34,7 +34,7 @@ exports.parseImageBase64 = (req,res) => {
   // predict the contents of an image by passing in a url
 app.models.predict('GifMe', {base64: req.body.url}).then(
 function(response) {
-  console.log(response);
+  // console.log(response);
   res.json({Response: getGreater(response.outputs[0].data.concepts)});
 },
 function(err) {
