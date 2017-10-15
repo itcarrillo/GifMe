@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col">
       <p class="text-center">Want To See Something Cool...</p>
+      <p class="text-center phone_text">Phone Number: (917) 746-0378</p>
+      <p class="text-center phone_text">Send a photo of yourself happy, sad, etc...</p>
     </div>
   </div>
   <div class="row">
@@ -9,11 +11,23 @@
     </div>
     <div class="col-3">
       <form method="POST" action="/api/parseImageBase64">
-      <input id="browse" type="file" name="image" accept="image/*">
+      <input id="browse" type="file" name="image" accept="image/*" onchange="upload()">
+      <p id="base64Display"></p> 
       <label for="browse">Browse</label>
       <input type="submit" name="submit" value="Submit">
       </form>
     </div>
+    <canvas id="mycanvas"></canvas>
+    <script>
+    function upload(){
+      console.log("upload");
+    var myImage = document.getElementById('browse').value;
+    console.log(myImage);
+    var base64 = window.btoa(myImage);
+    console.log(base64);
+}
+</script>
+
     <div class="col">
     </div>
   </div>

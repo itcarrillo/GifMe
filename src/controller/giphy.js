@@ -3,7 +3,6 @@ const apiUrl = 'http://api.giphy.com';
 const request = require('request');
 
 function getGifRendered(req, res) {
-	console.log("Test");
 	let output;
 	const query = req.body.string;
 	const url = apiUrl + '/v1/gifs/search?q=' + query + '&api_key=' + apiKey + '&limit=30';
@@ -14,8 +13,13 @@ function getGifRendered(req, res) {
 		}
 		else {
 			const rando = parseInt(Math.random() * 30);
-			output = JSON.parse(body).data[rando].images.original.url;
-			res.render('result', {url: output});
+			try {
+				output = JSON.parse(body).data[rando].images.original.url;
+				res.render('result', {url: output});
+			}
+			catch (error) {
+				res.render('result', {url: 'https://media.giphy.com/media/9J7tdYltWyXIY/giphy.gif'});
+			}
 		}
 	});
 }
@@ -33,8 +37,7 @@ function getGifUrl(req, res) {
 		else {
 			const rando = parseInt(Math.random() * 30);
 			output = JSON.parse(body).data[rando].images.downsized.url;
-			console.log(output);
-			res.send({url: output, emotion: query});
+			res.json({url: output, emotion: query});
 		}
 	});
 }
