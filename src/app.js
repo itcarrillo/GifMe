@@ -10,8 +10,8 @@ app.use(express.static(publicPath));
 
 // Configure app to use bodyParser()
 // This will let us get data from a POST
-app.use(bodyParser.json({limit: '5mb'}));
-app.use(bodyParser.urlencoded({extended:true, limit: '5mb'}));
+app.use(bodyParser.json({limit: '10mb'}));
+app.use(bodyParser.urlencoded({extended:true, limit: '10mb'}));
 app.use(bodyParser.json());
 
 
