@@ -22,18 +22,18 @@ function receivePicture(req, res) {
 			res.send(err);
 		}
 		else {
-			const url = body;
+			const resObj = JSON.parse(body);
 			console.log(url);
-			sendGif(url, req.body.From);
+			sendGif(resObj.url, resObj.form.string, req.body.From);
 		}
 	});
 }
 
 
-function sendGif(url, to) {
+function sendGif(url, text, to) {
 	console.log('Sending gif...');
 	console.log(url);
-	parameters = {mediaUrl: url, from: number, to: to}
+	parameters = {mediaUrl: url, from: number, to: to, body: text};
 	client.messages.create(parameters).then(
 		(message) => console.log(message.sid));
 }
