@@ -13,4 +13,8 @@ router.get('/search', (req, res) => {
 	res.render('search');
 });
 
+router.get('/searchByUrl', (req, res) => {
+	res.render('searchByUrl');
+});
+
 module.exports = {router: router};
