@@ -1,5 +1,36 @@
+/*background styling*/
+/*Citation: https://css-tricks.com/perfect-full-page-background-image/*/
+html {
+  background: url(images/nyc_overview-min.jpg)no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+body {
+  background:none;
+  background-size: cover;
+}
+
+/*Input styling*/
+#browse {
+  color: red;
+  background-color: inherit;
+}
+
+a {
+  color: royalblue;
+}
+
 input {
+  background-color: black;
+  color: lightblue;
   align-items: center;
+  border: black;
+  border-radius: 5px;
 }
 
 h1 {
@@ -21,19 +52,29 @@ h2 {
 	text-align: center;
 }
 
+/*navbar styling*/
 ul {
 	font-size: 20px;
 	text-align: center;
 	list-style-type: none;
-	margin: 0;
+	margin-top: 32px;
+  margin-bottom: 32px;
 	padding: 0;
 }
 
 li {
 	display: inline;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+li a {
+  border-radius: 5px;
+  padding: 2px;
 }
 
 li a:hover {
+  text-decoration: none;
 	background-color: black;
-	color: white;
+	color: lightblue;
 }
