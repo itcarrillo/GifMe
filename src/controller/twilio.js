@@ -11,7 +11,7 @@ function receivePicture(req, res) {
 	console.log(req.body.From);
 	
 	const options = {
-    	url: 'http://www.gifmenow.com/api/parseImageUrl',
+    	url: 'http://localhost:3000/api/parseImageUrlTwilio',
     	method: 'POST',
     	form: {'url': img}
 	}
@@ -22,17 +22,17 @@ function receivePicture(req, res) {
 			res.send(err);
 		}
 		else {
-			console.log(JSON.parse(body).Response.name);
+			const obj = JSON.parse(body);
+			sendGif(obj.url, obj.emotion, req.body.From);
 		}
 	});
-
-
-	//sendGif('https://media2.giphy.com/media/11gKLgWdd4fq92/200w_d.gif', req.body.From);
 }
 
-
-function sendGif(url, to) {
-	parameters = {mediaUrl: url, from: number, to: to}
+function sendGif(url, text, to) {
+	console.log('Sending gif...');
+	console.log(text);
+	console.log(url);
+	parameters = {mediaUrl: url, from: number, to: to, body: text};
 	client.messages.create(parameters).then(
 		(message) => console.log(message.sid));
 }
