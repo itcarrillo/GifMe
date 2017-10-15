@@ -12,7 +12,7 @@ function receivePicture(req, res) {
 	console.log(req.body.From);
 	
 	const options = {
-    	url: '/api/parseImageUrl',
+    	url: 'http://www.gifmenow.com/api/parseImageUrl',
     	method: 'POST',
     	form: {'url': img}
 	}
