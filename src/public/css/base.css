@@ -56,6 +56,16 @@ input {
   margin-left: 5px;
 }
 
+input[type=text] {
+  width: 40%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+span {
+  font-size: 18px;
+}
+
 h1 {
 	font-size: 60px;
 	font-family: Verdana;
@@ -68,6 +78,11 @@ form {
 
 p {
 	font-size: 20px;
+}
+
+.phone_text {
+  margin: 0px;
+  padding: 0px;
 }
 
 h2 {
