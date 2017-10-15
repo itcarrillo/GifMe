@@ -9,4 +9,8 @@ router.get('/result', (req, res) => {
 	res.render('result', req.body);
 });
 
+router.get('/search', (req, res) => {
+	res.render('search');
+});
+
 module.exports = {router: router};
