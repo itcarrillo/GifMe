@@ -33,7 +33,7 @@ function getGifUrl(req, res) {
 		else {
 			const rando = parseInt(Math.random() * 30);
 			output = JSON.parse(body).data[rando].images.downsized.url;
-			// console.log(output);
+			console.log(output);
 			res.json({url: output, emotion: query});
 		}
 	});
