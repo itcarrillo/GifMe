@@ -9,11 +9,23 @@
     </div>
     <div class="col-3">
       <form method="POST" action="/api/parseImageBase64">
-      <input id="browse" type="file" name="image" accept="image/*">
+      <input id="browse" type="file" name="image" accept="image/*" onchange="upload()">
+      <p id="base64Display"></p> 
       <label for="browse">Browse</label>
       <input type="submit" name="submit" value="Submit">
       </form>
     </div>
+    <canvas id="mycanvas"></canvas>
+    <script>
+    function upload(){
+      console.log("upload");
+    var myImage = document.getElementById('browse').value;
+    console.log(myImage);
+    var base64 = window.btoa(myImage);
+    console.log(base64);
+}
+</script>
+
     <div class="col">
     </div>
   </div>
