@@ -9,7 +9,7 @@ html {
   height: 100%;
 }
 
-
+/*Creating the opacity of the background image*/
 body {
   background-color:rgba(255, 255, 255, 0.6) ;
   min-height: 100%;
@@ -42,10 +42,6 @@ label {
   margin-right: 5px;
 }
 
-a {
-  color: royalblue;
-}
-
 input {
   background-color: black;
   color: lightblue;
@@ -62,10 +58,12 @@ input[type=text] {
   padding-bottom: 5px;
 }
 
+/*Seach bar styling*/
 span {
   font-size: 18px;
 }
 
+/*text styling*/
 h1 {
 	font-size: 60px;
 	font-family: Verdana;
@@ -115,4 +113,8 @@ li a:hover {
   text-decoration: none;
 	background-color: black;
 	color: lightblue;
+}
+
+a {
+  color: royalblue;
 }
