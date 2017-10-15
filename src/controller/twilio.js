@@ -9,14 +9,16 @@ function receivePicture(req, res) {
 	const img = req.body.MediaUrl0;
 	console.log(img);
 	console.log(req.body.From);
+	
 	const options = {
-    url: '/api/parseImageUrl',
-    method: 'POST',
-    form: {'url': img}
+    	url: '/api/parseImageUrl',
+    	method: 'POST',
+    	form: {'url': img}
 	}
 
 	request(options, (err, response, body) => {
 		if (err) {
+			console.log(err);
 			res.send(err);
 		}
 		else {
