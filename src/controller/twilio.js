@@ -4,13 +4,27 @@ const apiToken = process.env.twilio_api_token;
 const number = '+19177460378';
 const client = require('twilio')(apiSid, apiToken);
 const request = require('request');
-const clarifAi = require('./clarifAi.js');
 
 function receivePicture(req, res) {
 	const img = req.body.MediaUrl0;
 	console.log(img);
-	//clarifAi.parseImageBase64(img)
 	console.log(req.body.From);
+	const options = {
+    url: '/api/parseImageUrl',
+    method: 'POST',
+    form: {'url': img}
+	}
+
+	request(options, (err, response, body) => {
+		if (err) {
+			res.send(err);
+		}
+		else {
+			console.log(JSON.parse(body).Response.name);
+		}
+	});
+
+
 	//sendGif('https://media2.giphy.com/media/11gKLgWdd4fq92/200w_d.gif', req.body.From);
 }
 
