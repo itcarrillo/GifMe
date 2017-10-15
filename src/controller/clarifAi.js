@@ -75,15 +75,15 @@ function(err) {
 }
 
 exports.parseImageBase64 = (req,res) => {
-  // predict the contents of an image by passing in a url
-app.models.predict('GifMe', {base64: req.body.url}).then(
-function(response) {
-  // console.log(response);
-  res.json({Response: getGreater(response.outputs[0].data.concepts)});
-},
-function(err) {
-  console.error(err);
-  res.json({Error: err});
-}
-);
+    // predict the contents of an image by passing in a url
+  app.models.predict('GifMe', {base64: req.body.base64}).then(
+  function(response) {
+    // console.log(response);
+    res.json({Response: getGreater(response.outputs[0].data.concepts)});
+  },
+  function(err) {
+    console.error(err);
+    res.json({Error: err});
+  }
+  );
 }
