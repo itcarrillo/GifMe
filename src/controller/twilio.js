@@ -34,6 +34,8 @@ function receivePicture(req, res) {
 
 
 function sendGif(url, to) {
+	console.log('Sending gif...');
+	console.log(url);
 	parameters = {mediaUrl: url, from: number, to: to}
 	client.messages.create(parameters).then(
 		(message) => console.log(message.sid));
