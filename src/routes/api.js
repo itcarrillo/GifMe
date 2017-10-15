@@ -12,7 +12,8 @@ const giphy = require('../controller/giphy');
 router.get('/', apiHome.getApi);
 router.post('/', apiHome.postApi);
 
-router.post('/clarifai', clarifAi.parseImage);
+router.post('/parseImageUrl', clarifAi.parseImageUrl);
+router.post('/parseImageBase64', clarifAi.parseImageBase64);
 
 //router.post('/giphy', giphy.getGif);
 
