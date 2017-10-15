@@ -16,6 +16,7 @@ router.post('/parseImageUrl', clarifAi.parseImageUrl);
 router.post('/parseImageBase64', clarifAi.parseImageBase64);
 
 router.post('/giphy', giphy.getGif);
+router.post('/twilio', twilio.receivePicture);
 
 // Return Router
 module.exports = router;
