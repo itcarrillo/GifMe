@@ -8,7 +8,8 @@ const request = require('request');
 
 function receivePicture(req, res) {
 	//const img = req.body.Image;
-	sendGif('https://media2.giphy.com/media/11gKLgWdd4fq92/200w_d.gif', req.body.from);
+	console.log(req.body.From);
+	sendGif('https://media2.giphy.com/media/11gKLgWdd4fq92/200w_d.gif', req.body.From);
 }
 
 
