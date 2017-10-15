@@ -6,17 +6,15 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
   height: 100%;
-  margin: 0px;
-  padding: 0px;
 }
 
 
 body {
-  background:none;
   background-color:rgba(255, 255, 255, 0.6) ;
   min-height: 100%;
+  min-width: 100%;
+  position: fixed;
   margin: 0px;
   padding: 0px;
 }
@@ -37,9 +35,11 @@ label {
   color: lightblue;
   background-color: black;
   border-radius: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
   cursor: pointer;
+  margin: 0px;
+  margin-right: 5px;
 }
 
 a {
@@ -52,6 +52,8 @@ input {
   align-items: center;
   border: black;
   border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 h1 {
@@ -65,7 +67,7 @@ form {
 }
 
 p {
-	font-size: 30px;
+	font-size: 20px;
 }
 
 h2 {
