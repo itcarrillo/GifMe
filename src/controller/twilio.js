@@ -18,3 +18,4 @@ function sendGif(url, to) {
 		(message) => console.log(message.sid));
 }
 
+module.exports = {receivePicture, sendGif};
