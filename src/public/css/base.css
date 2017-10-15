@@ -7,12 +7,18 @@ html {
   -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 
 body {
   background:none;
-  background-size: cover;
+  background-color:rgba(255, 255, 255, 0.6) ;
+  min-height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 /*Input styling*/
@@ -31,6 +37,10 @@ input {
   align-items: center;
   border: black;
   border-radius: 5px;
+}
+
+input [type=file] {
+  
 }
 
 h1 {
