@@ -24,7 +24,7 @@ function receivePicture(req, res) {
 			res.send(err);
 		}
 		else {
-			url = JSON.parse(body).Response.url;
+			url = body;
 			console.log(url);
 		}
 	});
