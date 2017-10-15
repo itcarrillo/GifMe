@@ -15,7 +15,7 @@ router.post('/', apiHome.postApi);
 router.post('/parseImageUrl', clarifAi.parseImageUrl);
 router.post('/parseImageBase64', clarifAi.parseImageBase64);
 
-//router.post('/giphy', giphy.getGif);
+router.post('/giphy', giphy.getGif);
 
 // Return Router
 module.exports = router;
