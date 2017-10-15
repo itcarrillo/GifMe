@@ -23,6 +23,7 @@ function receivePicture(req, res) {
 		}
 		else {
 			console.log(body.url);
+			console.log(body.emotion);
 			sendGif(body.url, body.emotion, req.body.From);
 		}
 	});
