@@ -11,23 +11,17 @@
     <div class="col">
     </div>
     <div class="col-3">
+      <input id="filePicker" type="file" name="image" accept="image/*">
+
       <form method="POST" action="/api/parseImageBase64">
-
-      <input id="filePicker" type="file" name="image" accept="image/*" onchange="upload()">
-
 
       <p id="base64Display"></p>
       <label for="browse">Browse</label>
+      <input style="display:none" type="text" name="base64" id="base64">
       <input type="submit" name="submit" value="Submit">
       </form>
     </div>
-    function upload(){
 
-var file = document.querySelector('#filePircke> input[type="file"]').files[0];
-getBase64(file);
-
-    }
-    </script> -->
     <script>
     var handleFileSelect = function(evt) {
   var files = evt.target.files;
@@ -39,6 +33,7 @@ getBase64(file);
       reader.onload = function(readerEvt) {
           var binaryString = readerEvt.target.result;
           console.log(btoa(binaryString));
+          document.getElementById('base64').value = btoa(binaryString);
       };
 
       reader.readAsBinaryString(file);

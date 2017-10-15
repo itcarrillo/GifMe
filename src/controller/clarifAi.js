@@ -34,7 +34,7 @@ exports.parseImageUrl = (req,res) => {
 		  // console.log(response);
 
 			const emotion = parseClarafaiObject(getGreater(response.outputs[0].data.concepts));
-		  
+
 			console.log("emotion " + emotion);
 			var request = require('request');
 			request.post({
@@ -42,13 +42,13 @@ exports.parseImageUrl = (req,res) => {
 				form: {string: emotion}
 			}, function(error, response, body){
 			res.send(body);
-		  }); 
+		  });
 		},
 		function(err) {
 			console.error(err);
 			res.json({Error: err});
 		});
-	} 
+	}
 }
 
 
@@ -75,14 +75,28 @@ function(response) {
 }
 
 exports.parseImageBase64 = (req,res) => {
-	// predict the contents of an image by passing in a url
-	app.models.predict('GifMe', {base64: req.body.base64}).then(
-	function(response) {
-	// console.log(response);
-	res.json({Response: getGreater(response.outputs[0].data.concepts)});
-	},
-	function(err) {
-		console.error(err);
-		res.json({Error: err});
-	});
+  // console.log("Over here");
+  // console.log(req.body.base64);
+    // predict the contents of an image by passing in a url
+  app.models.predict('GifMe', {base64: req.body.base64}).then(
+    function(response) {
+      // console.log(response);
+      const emotion = parseClarafaiObject(getGreater(response.outputs[0].data.concepts));
+      console.log("emotion " + emotion);
+      var request = require('request');
+      request.post({
+        url:     'http://localhost:3000/api/giphy',
+        form:    { string: emotion }
+      }, function(error, response, body){
+        res.send(body);
+      });
+      // request.post('/api/giphy').form({string:emotion});
+
+      // res.json({Response: emotion});
+    },
+    function(err) {
+      console.error(err);
+      res.json({Error: err});
+    }
+    );
 }
