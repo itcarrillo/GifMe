@@ -6,19 +6,40 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
 }
 
 
 body {
-  background:none;
-  background-size: cover;
+  background-color:rgba(255, 255, 255, 0.6) ;
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
 }
 
 /*Input styling*/
 #browse {
-  color: red;
-  background-color: inherit;
+  /*color: red;
+  background-color: inherit;*/
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+label {
+  color: lightblue;
+  background-color: black;
+  border-radius: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  cursor: pointer;
+  margin: 0px;
+  margin-right: 5px;
 }
 
 a {
@@ -31,6 +52,8 @@ input {
   align-items: center;
   border: black;
   border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 h1 {
@@ -44,7 +67,7 @@ form {
 }
 
 p {
-	font-size: 30px;
+	font-size: 20px;
 }
 
 h2 {

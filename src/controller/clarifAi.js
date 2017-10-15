@@ -48,6 +48,32 @@ function(err) {
 }
 
 
+exports.parseImageUrlTwilio = (req,res) => {
+  // predict the contents of an image by passing in a url
+app.models.predict('GifMe', req.body.url).then(
+function(response) {
+  // console.log(response);
+  const emotion = parseClarafaiObject(getGreater(response.outputs[0].data.concepts));
+  console.log("emotion " + emotion);
+  var request = require('request');
+  request.post({
+    url:     'http://localhost:3000/api/giphyUrl',
+    form:    { string: emotion }
+  }, function(error, response, body){
+    // console.log(body);
+    res.send(body);
+  });
+  // request.post('/api/giphy').form({string:emotion});
+
+  // res.json({Response: emotion});
+},
+function(err) {
+  console.error(err);
+  res.json({Error: err});
+}
+);
+}
+
 exports.parseImageBase64 = (req,res) => {
   // predict the contents of an image by passing in a url
 app.models.predict('GifMe', {base64: req.body.url}).then(
