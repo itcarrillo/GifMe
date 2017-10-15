@@ -22,8 +22,8 @@ function receivePicture(req, res) {
 			res.send(err);
 		}
 		else {
-			console.log(body.url);
-			sendGif(body.url, body.emotion, req.body.From);
+			const obj = JSON.parse(body);
+			sendGif(obj.url, obj.emotion, req.body.From);
 		}
 	});
 }
