@@ -1,4 +1,4 @@
-# GifMe
+# GifMe - hackNY Fall '17
 
 ## Description
 Emotion recognition web app developed by first-timers at the hackNY fall '17 hackathon that integrates the Clarifai Machine 
